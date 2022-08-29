@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarouselViewPositionDemo.MainPage">
+
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*,*">
+        <Button Grid.Row="0" Grid.Column="0" Text="Item 1" Clicked="Button1_Clicked" />
+        <Button Grid.Row="0" Grid.Column="1" Text="Item 2" Clicked="Button2_Clicked" />
+        <Button Grid.Row="0" Grid.Column="2" Text="Item 3" Clicked="Button3_Clicked" />
+        <CarouselView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="MyCarousel" IsSwipeEnabled="False" Loop="False">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item 1</x:String>
+                    <x:String>Item 2</x:String>
+                    <x:String>Item 3</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" />
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </Grid>
+</ContentPage>
